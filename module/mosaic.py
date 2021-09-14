@@ -137,18 +137,21 @@ def label_right(empty_cage):
     pass
     return labels[empty_cage.row*size + empty_cage.column + 1]
 
-n = 0
 
-def end_game():
+def end_game(function_launch_key):
      
-    if n == 1:
+    if function_launch_key == 1:
+        print(labels)
         if labels_before == labels:
-            print('игра законченна!')
+            print('Мозайка сложена!')
+            
+            key_press('q', 1)
+
         else:
             print('Ходите еще')
 
 
-def key_press(btn):
+def key_press(btn, launch_key ):
     '''Основная логика перемещения на игровом поле. 
        Основной элемент логики - пустая клетка - от неё определяем соседа.
        Далее меняем координаты пустой клетки и соседа.
@@ -157,32 +160,32 @@ def key_press(btn):
 
     if btn == 'r' and empty_cage.column > 0:
         near = label_left(empty_cage)
-        end_game()
+        end_game(launch_key)
         empty_cage.column -= 1
         near.column += 1
     elif btn == 'l' and empty_cage.column < size - 1:
         near = label_right(empty_cage)
-        end_game()
+        end_game(launch_key)
         empty_cage.column += 1
         near.column -= 1
     elif btn == 'u' and empty_cage.row < size - 1:
         near = label_under(empty_cage)
-        end_game()
+        end_game(launch_key)
         empty_cage.row += 1
         near.row -= 1
     elif btn == 'd' and empty_cage.row > 0:
         near = label_above(empty_cage)
-        end_game()
+        end_game(launch_key)
         empty_cage.row -= 1
         near.row += 1
     elif btn == 'q':
         exit() 
     exchange(empty_cage, near)
     grid_x(empty_cage, near)
+ 
 
-print(n) 
 
-def mix_up():
+def mix_up(launch_key):
     '''Перемешивание клеток
        SIDE ** 4 - взято для лучшего перемешивания,
        т.к. не все вызовы функции нажатия кнопок
@@ -191,25 +194,18 @@ def mix_up():
     buttons = ['d', 'u', 'l', 'r']
     for i in range (size ** 4):
         x = choice(buttons)
-        key_press(x)
-    
-    n = 1
-    return n
+        key_press(x, launch_key)
+    launch_key += 1
+    return end_game(launch_key)
 
-print(n) 
+num_key = 0
+main_window.bind('<Right>', lambda e: key_press('r', 1))
+main_window.bind('<Left>', lambda e: key_press('l', 1))
+main_window.bind('<Up>', lambda e: key_press('u', 1))
+main_window.bind('<Down>', lambda e: key_press('d', 1))
+main_window.bind('<q>', lambda e: key_press('q', 1))
 
-
-
-main_window.bind('<Right>', lambda e: key_press('r'))
-main_window.bind('<Left>', lambda e: key_press('l'))
-main_window.bind('<Up>', lambda e: key_press('u'))
-main_window.bind('<Down>', lambda e: key_press('d'))
-main_window.bind('<q>', lambda e: key_press('q'))
-
-main_window.after(5000, mix_up)
-
-n = mix_up()
-print(n) 
+main_window.after(5000, mix_up(num_key)) 
 main_window.mainloop()
 
 
