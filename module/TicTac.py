@@ -3,8 +3,14 @@ import pathlib
 from FuntionsForModule import INTexam
 import random
 from FuntionsForModule import wincombinations
-from FuntionsForModule import profile1
-print('Привет,' + profile1.user_name + '!!!')
+
+profile_path = pathlib.Path('profile.txt')
+profile_path.absolute()
+
+with open(profile_path, 'r') as profile:
+        user_name = profile.readline()
+
+print('Привет,' + user_name + '!!!')
 
 player1 = input('Игрок № 1. Введите ваше имя: ')
 player2 = input('Игрок № 2. Введите ваше имя: ')

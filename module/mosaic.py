@@ -5,8 +5,13 @@ from PIL import Image, ImageTk
 from random import choice
 import pathlib
 from FuntionsForModule import INTexam
-from FuntionsForModule import profile1
-print('Привет,' + profile1.user_name + '!!!')
+
+profile_path = pathlib.Path('profile.txt')
+profile_path.absolute()
+with open(profile_path, 'r') as profile:
+        user_name = profile.readline()
+        
+print('Привет,' + user_name + '!!!')
 print(''''Инструкция по управлению:
     Q -- выход;
     UP -- белая клетка опустится вниз на один ярус;

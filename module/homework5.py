@@ -1,6 +1,13 @@
 from FuntionsForModule import FunctionsFor5HW
-from FuntionsForModule import profile1
-print('Привет,' + profile1.user_name + '!!!')
+import pathlib
+
+profile_path = pathlib.Path('profile.txt')
+profile_path.absolute()
+
+with open(profile_path, 'r') as profile:
+        user_name = profile.readline()
+
+print('Привет,' + user_name + '!!!')
 
 Number_of_dicts = int(input('Введите количество словарей на проверку уникальности: '))
 Number_of_keys = int(input('Введите количество ключей: '))

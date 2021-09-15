@@ -1,11 +1,29 @@
-from FuntionsForModule import profile1
+from os import name
 import sys
 import pathlib
 
+profile_path = pathlib.Path('profile.txt')
+profile_path.absolute()
 
-print('Привет,', profile1.user_name, '!!!')
+if profile_path.exists():
+    with open(profile_path, 'r') as profile:
+        user_name = profile.readline()
+else:
+    while True:
+        user_name = input('Введите ваше имя:').title
+        if user_name == '':
+            continue
+        else:
+            break
+
+    with open(profile_path, 'w') as profile:
+        profile.write(user_name)
+
+print('Привет,', user_name, '!!!')
+
 
 way_to_directory = str(pathlib.Path(__file__).parent.absolute())
+
 while True:   
     
     print('''
@@ -28,15 +46,24 @@ while True:
     
     ''')
     valid_choices = ['1','2','3','4','5','6','q','quit','change']
-    user_choice = input(profile1.user_name + ', выберите символ из предложенных выше из предложенных выше: ').lower()
+    user_choice = input(user_name + ', выберите символ из предложенных выше из предложенных выше: ').lower()
     
 
     if user_choice not in valid_choices:
         print('Вы ввели недопустимый символ. Повторите ввод: ')
         continue
 
-    if user_choice == 'change':
-        profile1.user_name = input('Введите ваше имя: ')
+    if user_choice == 'change':  
+        while True:
+            user_name = input('Введите ваше имя:').title
+            if user_name == '':
+                continue
+            else:
+                break
+    
+        with open(profile_path, 'w') as profile:
+            profile.write(user_name)
+
     if user_choice == 'q' or user_choice == 'quit':
         break
        

@@ -1,7 +1,12 @@
 from FuntionsForModule import INTexam
 from FuntionsForModule import FunctionsFor4HW
-from FuntionsForModule import profile1
-print('Привет,' + profile1.user_name + '!!!')
+import pathlib
+profile_path = pathlib.Path('profile.txt')
+profile_path.absolute()
+with open(profile_path, 'r') as profile:
+        user_name = profile.readline()
+
+print('Привет,' + user_name + '!!!')
 
 Number_of_rows_in_the_wall = (input('Введите количество рядов в стене:'))
 Number_of_rows_in_the_wall = INTexam.exam(Number_of_rows_in_the_wall)
