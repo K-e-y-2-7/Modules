@@ -1,6 +1,9 @@
 from FuntionsForModule import INTexam
 from FuntionsForModule import FunctionsFor4HW
 import pathlib
+
+print('Скрипт с кирпичной стеной')
+
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
 with open(profile_path, 'r') as profile:

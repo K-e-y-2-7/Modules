@@ -1,6 +1,8 @@
 from FuntionsForModule import SortFunc
 import pathlib
 
+print('Сортировка')
+
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
 with open(profile_path, 'r') as profile:

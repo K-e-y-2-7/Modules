@@ -1,6 +1,7 @@
 from FuntionsForModule import FunctionsFor5HW
 import pathlib
 
+print('Уникальные значения в словарях')
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
 

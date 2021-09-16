@@ -6,6 +6,8 @@ from random import choice
 import pathlib
 from FuntionsForModule import INTexam
 
+print('Мозайка')
+
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
 with open(profile_path, 'r') as profile:

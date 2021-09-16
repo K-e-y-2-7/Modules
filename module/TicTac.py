@@ -1,8 +1,9 @@
-print('Крестики-Нолики')
 import pathlib
 from FuntionsForModule import INTexam
 import random
 from FuntionsForModule import wincombinations
+
+print('Крестики-Нолики')
 
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
