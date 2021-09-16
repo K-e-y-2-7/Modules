@@ -9,8 +9,23 @@ with open(profile_path, 'r') as profile:
 
 print('Привет,' + user_name + '!!!')
 
-Number_of_dicts = int(input('Введите количество словарей на проверку уникальности: '))
-Number_of_keys = int(input('Введите количество ключей: '))
+while True:
+    Number_of_dicts = int(input('Введите количество словарей на проверку уникальности: '))
+    
+    if Number_of_dicts == 0:
+        print('Не валидное значение, повторите ввод.')
+        continue
+    else:
+        break
+
+while True:
+    Number_of_keys = int(input('Введите количество ключей: '))
+    
+    if Number_of_keys == 0:
+        print('Не валидное значение, повторите ввод.')
+        continue
+    else:
+        break
 
 List_of_dicts, Key_of_dicts = [], []
 

@@ -56,17 +56,12 @@ while True:
     if user_choice == 'change':  
         
         while True:
-            new_user_name = input('Введите ваше имя:').title()
-            print(new_user_name, '> user_name')
-            if new_user_name == '':
+            user_name = input('Введите ваше имя:').title()
+            if user_name == '':
                 continue
             else:
                 break
 
-        print(new_user_name, '> user_name')
-        user_name = str(new_user_name)
-            
-        
         with open(profile_path, 'w') as profile:
             profile.write(user_name)
 
