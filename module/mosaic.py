@@ -77,7 +77,6 @@ while True:
         return regions 
 
 
-
     def make_mosaik_from_filename(file_name):
         ''' Создание мозаики на основе имени файла с картинкой
             Возвращает список картинок-квадратиков ImageTk.PhotoImage
@@ -167,7 +166,6 @@ while True:
 
             else:
                 print('Ходите еще')
-
 
 
     def key_press(btn, launch_key ):
