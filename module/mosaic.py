@@ -1,3 +1,8 @@
+'''Mosaic
+
+===========================
+'''
+
 import os
 import tkinter
 from tkinter.constants import N
@@ -5,8 +10,6 @@ from PIL import Image, ImageTk
 from random import choice
 import pathlib
 from FuntionsForModule import INTexam
-
-print('Мозайка')
 
 profile_path = pathlib.Path('profile.txt')
 profile_path.absolute()
