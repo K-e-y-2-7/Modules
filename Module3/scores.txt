@@ -1,0 +1,15 @@
+Player score: Kirill = 7 
+Player score: Vlad = 18 
+Player score: Vika = 7 
+Player score: Artem = 2 
+Player score: Key = 11 
+Player score: Sergey = 9 
+Player score: Kirill = 0 
+Player score: Alex = 7 
+Player score: Roman = 6 
+Player score: Misha = 0 
+Player score: Dima = 8 
+Player score: Kirill = 27 
+Player score: Kirill = 32 
+Player score: Kirill = 18 
+Player score: Kirill = 7 
